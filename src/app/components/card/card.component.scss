@@ -1,0 +1,64 @@
+#card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+#btn-buy {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+#btn-addcart {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#rate {
+  color: #ffd700;
+  margin: 10px 0;
+}
+#price {
+  color: #b12704;
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+#size {
+  margin: 5px 0;
+  color: #888;
+}
+#name-product {
+  margin: 15px 0 10px;
+  font-size: 1.5em;
+}
+#image {
+  margin-left: 50px;
+  width: 50%;
+  border-bottom: 1px solid #f0f0f0;
+}
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+  padding: 20px;
+  margin: 10px;
+}
+//responsive - 1line
+#card-container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}

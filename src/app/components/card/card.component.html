@@ -1,0 +1,26 @@
+<div id="card-container">
+  @for(prod of products; track $index){
+        <div class="card-holder">
+              <img id="image" src="{{prod.image}}" alt="product-image">
+              <h2 id="name-product">{{prod.name}}
+                <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+                  <mat-icon>favorite</mat-icon>
+                </button>
+              </h2>
+              <p id="size">{{prod.size}}</p>
+              <p id="price">{{prod.price}} - số lượng:{{prod.inStock}}</p>
+              <div id="rate">
+                &#9733;&#9733;&#9733;&#9733;&#9733;
+              </div>
+              <button id="btn-buy">Mua</button>
+              <button (click)="addToCart({
+                name: prod.name,
+                price: prod.price,
+                inStock: prod.inStock,
+                quantity: 1
+              })" id="btn-addcart">Add to cart</button>
+          <button (click)="removetoCart(prod.name)" mat-flat-button color="primary">remove to cart</button>
+        </div>
+  }
+</div>
+
