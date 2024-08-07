@@ -1,3 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#taskbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+}
+
+#banner {
+  width: 80vw;
+  height: 60%;
+  background-size: cover;
+  transition: background-color 0.3s ease;
+  background-image: url('https://marketplace.canva.com/EAFoEJMTGiI/1/0/1600w/canva-beige-aesthetic-new-arrival-fashion-banner-landscape-cNjAcBMeF9s.jpg');
+  border-radius: 20px;
+  margin: 30px auto;
+  animation: slide 10s infinite;
+}
+
+#banner:hover {
+  transform: scale(1.05);
+  transition: .5s linear;
+}
+// css title welcome, font chữ đẹp
+#title-welcome {
+  font-family: "Constantia", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 30px;
+  color: #007bff;
+  margin: 20px 0 40px 45%;
+
+}
+div a:hover {
+  font-size: 35px;
+  color: aquamarine;
+}
+
+@keyframes slide {
+  0% {
+    background-image: url('https://marketplace.canva.com/EAFoEJMTGiI/1/0/1600w/canva-beige-aesthetic-new-arrival-fashion-banner-landscape-cNjAcBMeF9s.jpg');
+  }
+  25% {
+    background-image: url('https://marketplace.canva.com/EAFO74bDca8/3/0/1600w/canva-brown-white-modern-fashion-banner-OgcIyosRRcE.jpg');
+  }
+  50% {
+    background-image: url('https://marketplace.canva.com/EAFJyDO5UQs/1/0/1600w/canva-beige-minimal-aesthetic-new-fashion-collection-banner-FXXYhSTS-mc.jpg');
+  }
+  75% {
+    background-image: url('https://marketplace.canva.com/EAFrKTQDL54/1/0/800w/canva-brown-white-simple-fashion-style-sale-medium-banner-%28landscape%29-m7xfeLRpvcU.jpg');
+  }
+  100% {
+    background-image: url('https://img.freepik.com/free-vector/flat-design-minimal-boutique-sale-background_23-2149337460.jpg');
+  }
+}
+
 h2 {
   color: red;
   font-size: 1.5em;
@@ -8,7 +68,7 @@ h2 {
   margin: 10px 0;
   color: #007bff;
 }
-//css giỏ hàng
+
 #cart {
   position: fixed;
   right: 0;
@@ -57,8 +117,40 @@ span a {
   font-size: 1.2em;
 
 }
+#btn-login{
+  margin-left: 10%;
+}
+#avatar-user {
+  width: 40px;
+  margin-left: 150px;
+  border-radius: 50%;
+}
 
+#btn-login, #btn-logout{
+  justify-content: center;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 2.0em;
+}
+#btn-login, #btn-logout:hover {
+  font-size: 33px;
+  transition: .1s linear;
+}
 
+#taskbar span a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 100px;
+}
+#taskbar span a h1 {
+  margin-top: 22px;
+}
 
 
 

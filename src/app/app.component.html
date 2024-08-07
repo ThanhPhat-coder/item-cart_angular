@@ -1,21 +1,62 @@
-<div id="product">
-  <app-card (buttonClick)="addtoCart($event)"></app-card>
-  <div id="cart">
+<div id="taskbar">
+  <span class="material-symbols-outlined">
+    <a>home <h1 [routerLink]="['/home']"> - Trang chủ</h1></a>
+  </span>
+
+  <span class="material-symbols-outlined">
+    <a>store <h1 [routerLink]="['/list-product']"> - Sản phẩm</h1></a>
+  </span>
+
+  <span class="material-symbols-outlined">
+    <a>contact_support <h1> - Liên hệ</h1></a>
+  </span>
+
+  @if(authService.currentUser){
+      <img src="{{authService.currentUser.photoURL}}" id="avatar-user" alt="avatar-user">
+      <button (click) = "authService.logout()" id="btn-logout">Đăng xuất </button>
+    }@else{
+      <button (click) = "authService.login()" id="btn-login">Đăng nhập </button>
+    }
+</div>
+
+<div id="header">
+  <h1 id="title-welcome">Welcome</h1>
+</div>
+
+<div id="banner"> </div>
+
+<div id="cart" *ngIf="authService.currentUser">
     <span class="material-symbols-outlined">
       <a>shopping_cart</a>
       <h1> - Giỏ hàng của bạn</h1>
     </span>
-    <div id="cart-container">
-      <h2 id="total"> Tổng tiền: {{cartService.getTotalPrice()| currency:'VND'}}</h2>
-      @for (item of cartService.cart; track $index){
-        <h2 id="prod-in-cart"> {{item.name}} - Giá: {{item.price}} - SL: {{item.quantity}}</h2>
-
-
-      }
-
-    </div>
+  <div id="cart-container">
+    <h2 id="total"> Tổng tiền: {{cartService.getTotalPrice()| currency:'VND'}}</h2>
+    @for (item of cartService.cart; track $index){
+      <h2 id="prod-in-cart"> {{item.name}} - Giá: {{item.price}} - SL: {{item.quantity}}</h2>
+    }
   </div>
 </div>
+
+<!--hiển thị các card và giỏ hàng sản phẩm sau khi login, nếu chưa login thì ko có(chỉ trong 1 trang) bằng *ngIf-->
+<!--<div id="product" *ngIf="authService.currentUser">-->
+<!--  <app-card (buttonClick)="addtoCart($event)"></app-card>-->
+<!--  <div id="cart">-->
+<!--    <span class="material-symbols-outlined">-->
+<!--      <a>shopping_cart</a>-->
+<!--      <h1> - Giỏ hàng của bạn</h1>-->
+<!--    </span>-->
+<!--    <div id="cart-container">-->
+<!--      <h2 id="total"> Tổng tiền: {{cartService.getTotalPrice()| currency:'VND'}}</h2>-->
+<!--      @for (item of cartService.cart; track $index){-->
+<!--        <h2 id="prod-in-cart"> {{item.name}} - Giá: {{item.price}} - SL: {{item.quantity}}</h2>-->
+<!--      }-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<router-outlet></router-outlet>
+
 
 
 
