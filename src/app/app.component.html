@@ -8,7 +8,7 @@
   </span>
 
   <span class="material-symbols-outlined">
-    <a>contact_support <h1> - Liên hệ</h1></a>
+    <a>contact_support <h1 [routerLink]="['/calculator']"> - Calculator</h1></a>
   </span>
 
   @if(authService.currentUser){
@@ -54,6 +54,13 @@
 <!--    </div>-->
 <!--  </div>-->
 <!--</div>-->
+<h2 style="margin: auto 10px"> {{this.count$ | async}}</h2>
+<button style="margin: auto 10px" (click)="increment()">+</button>
+<button style="margin: auto 10px" (click)="decrement()">-</button>
+<button style="margin: auto 10px" (click)="reset()">reset</button>
+
+
+
 
 <router-outlet></router-outlet>
 

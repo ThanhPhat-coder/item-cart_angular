@@ -2,14 +2,17 @@ import { Component } from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
 import {CardComponent} from "./components/card/card.component";
 import {CartService} from "./services/cart.service";
-import {CurrencyPipe, NgIf} from "@angular/common";
+import {AsyncPipe, CurrencyPipe, NgIf} from "@angular/common";
 import {AuthService} from "./services/auth.service";
 import {ListProductComponent} from "./pages/list-product/list-product.component";
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { decrement, increment, reset } from './actions/counter.action';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardComponent, CurrencyPipe, NgIf, ListProductComponent, RouterLink],
+  imports: [RouterOutlet, CardComponent, CurrencyPipe, NgIf, ListProductComponent, RouterLink, AsyncPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -18,7 +21,8 @@ export class AppComponent {
 
 
   cart: any[] = [];
-  constructor(public cartService: CartService, public authService: AuthService) {
+  constructor(public cartService: CartService, public authService: AuthService, private store: Store<{ counter: number }>) {
+    this.count$ = this.store.select('counter')
   }
   addtoCart(value: any) {
     this.cart.push(value);
@@ -32,6 +36,17 @@ export class AppComponent {
     console.log("OK");
   }
 
+
+  count$?: Observable<number>
+  increment() {
+    this.store.dispatch(increment())
+  }
+  decrement() {
+    this.store.dispatch(decrement())
+  }
+  reset() {
+    this.store.dispatch(reset())
+  }
 }
 
 
