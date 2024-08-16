@@ -1,0 +1,8 @@
+@for (music of (music$ | async)?.musics; track $index){
+  <app-music [music]="music"></app-music>
+}
+
+@if((music$ | async)?.loading){
+  <mat-spinner></mat-spinner>
+}
+

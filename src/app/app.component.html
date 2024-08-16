@@ -8,7 +8,18 @@
   </span>
 
   <span class="material-symbols-outlined">
+    <a>store <h1 [routerLink]="['/cat']"> - Cat-List</h1></a>
+  </span>
+
+  <span class="material-symbols-outlined">
+    <a>store <h1 [routerLink]="['/music']"> - Music-List</h1></a>
+  </span>
+
+  <span class="material-symbols-outlined">
     <a>contact_support <h1 [routerLink]="['/calculator']"> - Calculator</h1></a>
+  </span>
+  <span class="material-symbols-outlined">
+    <a>contact_support <h1 [routerLink]="['/profile']"> - List-profile</h1></a>
   </span>
 
   @if(authService.currentUser){
@@ -58,8 +69,6 @@
 <button style="margin: auto 10px" (click)="increment()">+</button>
 <button style="margin: auto 10px" (click)="decrement()">-</button>
 <button style="margin: auto 10px" (click)="reset()">reset</button>
-
-
 
 
 <router-outlet></router-outlet>

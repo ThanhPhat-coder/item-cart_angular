@@ -8,20 +8,23 @@ import {ListProductComponent} from "./pages/list-product/list-product.component"
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { decrement, increment, reset } from './actions/counter.action';
+import {CatCardComponent} from "./components/cat-card/cat-card.component";
+import {MatProgressSpinner} from "@angular/material/progress-spinner";
+import {ProfileService} from "./services/profile.service";
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardComponent, CurrencyPipe, NgIf, ListProductComponent, RouterLink, AsyncPipe],
+    imports: [RouterOutlet, CardComponent, CurrencyPipe, NgIf, ListProductComponent, RouterLink, AsyncPipe, CatCardComponent, MatProgressSpinner],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'Bt-trenlop5';
 
-
   cart: any[] = [];
-  constructor(public cartService: CartService, public authService: AuthService, private store: Store<{ counter: number }>) {
+  constructor(public profileService: ProfileService, public cartService: CartService, public authService: AuthService, private store: Store<{ counter: number }>) {
     this.count$ = this.store.select('counter')
   }
   addtoCart(value: any) {
