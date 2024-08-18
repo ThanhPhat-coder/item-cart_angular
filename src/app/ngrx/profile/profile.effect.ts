@@ -25,5 +25,54 @@ export class ProfileEffect {
     )
   })
 
+  searchProfiles$ = createEffect(() => {
+    return this.action$.pipe(
+      ofType(ProfileActions.searchProfiles),
+      mergeMap((action) => {
+        return this.profileService.searchProfiles(action.keyword).pipe(
+          map(profiles => ProfileActions.searchProfilesSuccess({profiles: profiles})),
+          catchError(error => of(ProfileActions.searchProfilesFailed({error: error})))
+        )
+      })
+    )
+  })
+
+  updateProfile$ = createEffect(() => {
+    return this.action$.pipe(
+      ofType(ProfileActions.updateProfile),
+      mergeMap((action) => {
+        return this.profileService.updateProfile(action.profile).pipe(
+          map(profile => ProfileActions.updateProfileSuccess({profile: profile})),
+          catchError(error => of(ProfileActions.updateProfileFailed({error: error})))
+        )
+      })
+    )
+  })
+
+  deleteProfile$ = createEffect(() => {
+    return this.action$.pipe(
+      ofType(ProfileActions.deleteProfile),
+      mergeMap((action) => {
+        return this.profileService.deleteProfile(action.id).pipe(
+          map(() => ProfileActions.deleteProfileSuccess({id: action.id})),
+          catchError(error => of(ProfileActions.deleteProfileFailed({error: error})))
+        )
+      })
+    )
+  })
+
+  addProfile$ = createEffect(() => {
+    return this.action$.pipe(
+      ofType(ProfileActions.addProfile),
+      mergeMap((action) => {
+        return this.profileService.addProfile(action.profile).pipe(
+          map(profile => ProfileActions.addProfileSuccess({profile: profile})),
+          catchError(error => of(ProfileActions.addProfileFailed({error: error})))
+        )
+      })
+    )
+  })
+
+
 
 }
